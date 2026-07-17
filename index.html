@@ -27,6 +27,7 @@
       background: #f7fafc;
       color: var(--azul-escuro);
       font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -35,8 +36,13 @@
     }
 
     .cabecalho {
-      background: var(--azul-escuro);
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+      background: rgba(8, 29, 49, 0.97);
       color: var(--branco);
+      backdrop-filter: blur(12px);
     }
 
     .cabecalho-conteudo {
@@ -63,7 +69,11 @@
       border: 1px solid rgba(255, 255, 255, 0.24);
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.1);
-      font-size: 22px;
+    }
+
+    .icone-marca svg {
+      width: 23px;
+      height: 23px;
     }
 
     .marca strong,
@@ -83,9 +93,27 @@
     }
 
     .apresentacao {
+      position: relative;
+      overflow: hidden;
       padding: 68px max(20px, calc((100vw - 1120px) / 2)) 92px;
-      background: linear-gradient(135deg, #0b2945 0%, #123e64 100%);
+      background:
+        radial-gradient(circle at 82% 8%, rgba(73, 158, 218, 0.23), transparent 27%),
+        linear-gradient(135deg, #0b2945 0%, #123e64 100%);
       color: var(--branco);
+    }
+
+    .apresentacao::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: -145px;
+      width: 390px;
+      height: 390px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 55px rgba(255, 255, 255, 0.025),
+        0 0 0 110px rgba(255, 255, 255, 0.018);
     }
 
     .etiqueta {
@@ -97,12 +125,14 @@
       text-transform: uppercase;
     }
 
-    .apresentacao p {
-      max-width: 620px;
-      margin: 14px 0 0;
-      color: #d0deea;
-      font-size: 17px;
-      line-height: 1.7;
+    .titulo-principal {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: var(--branco);
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -2px;
     }
 
     .conteudo {
@@ -174,7 +204,11 @@
       border-radius: 13px;
       background: var(--azul-claro);
       color: var(--azul-medio);
-      font-size: 23px;
+    }
+
+    .icone-cartao svg {
+      width: 25px;
+      height: 25px;
     }
 
     .categoria {
@@ -219,6 +253,16 @@
 
     .botao:hover {
       background: var(--azul-medio);
+    }
+
+    .botao:focus-visible {
+      outline: 3px solid #76c8ff;
+      outline-offset: 4px;
+    }
+
+    .botao svg {
+      width: 17px;
+      height: 17px;
     }
 
     footer {
@@ -275,7 +319,12 @@
   <header class="cabecalho">
     <div class="cabecalho-conteudo">
       <div class="marca">
-        <span class="icone-marca" aria-hidden="true">🔗</span>
+        <span class="icone-marca" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+          </svg>
+        </span>
         <span>
           <strong>Links Importantes</strong>
           <small>Central de acessos</small>
@@ -288,8 +337,7 @@
 
   <main>
     <section class="apresentacao" aria-label="Central de links importantes">
-      <span class="etiqueta">Central de links</span>
-      <p>Acesse rapidamente sistemas, painéis e relatórios utilizados no dia a dia.</p>
+      <h1 class="titulo-principal">Central de links</h1>
     </section>
 
     <section class="conteudo" aria-label="Acessos disponíveis">
@@ -301,7 +349,12 @@
       <div class="grade-links">
         <article class="cartao">
           <div class="cartao-topo">
-            <span class="icone-cartao" aria-hidden="true">🔗</span>
+            <span class="icone-cartao" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+            </span>
             <span class="categoria">SAD • SEADP</span>
           </div>
 
@@ -316,7 +369,12 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            Acessar relatório ↗
+            Acessar relatório
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            </svg>
           </a>
         </article>
       </div>
