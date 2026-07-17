@@ -1,390 +1,464 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Central de acesso rápido a sistemas, painéis e relatórios importantes.">
-  <title>Links Importantes | Central de Acessos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --azul-escuro: #081d31;
-      --azul: #0b2945;
-      --azul-medio: #1672b8;
-      --azul-claro: #e8f4fc;
-      --texto: #3d4e5d;
-      --cinza: #6c7d8b;
-      --borda: #dde6ed;
-      --branco: #ffffff;
-    }
+    <title>Links Importantes | Central de Acessos</title>
 
-    * {
-      box-sizing: border-box;
-    }
+    <style>
+        :root {
+            --azul-escuro: #081d31;
+            --azul: #0b2945;
+            --azul-claro: #1672b8;
+            --fundo-icone: #e8f4fc;
+            --texto: #3d4e5d;
+            --cinza: #6c7d8b;
+            --borda: #dde6ed;
+            --branco: #ffffff;
+        }
 
-    body {
-      margin: 0;
-      background: #f7fafc;
-      color: var(--azul-escuro);
-      font-family: Arial, Helvetica, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .cabecalho {
-      position: sticky;
-      z-index: 10;
-      top: 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.13);
-      background: rgba(8, 29, 49, 0.97);
-      color: var(--branco);
-      backdrop-filter: blur(12px);
-    }
+        body {
+            margin: 0;
+            background: #f7fafc;
+            color: var(--azul-escuro);
+            font-family: Arial, Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    .cabecalho-conteudo {
-      width: min(1120px, calc(100% - 40px));
-      min-height: 78px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    .marca {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
+        .cabecalho {
+            position: relative;
+            z-index: 10;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+            background: var(--azul-escuro);
+            color: var(--branco);
+        }
 
-    .icone-marca {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.1);
-    }
+        .cabecalho-conteudo {
+            width: min(1120px, calc(100% - 40px));
+            min-height: 78px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
 
-    .icone-marca svg {
-      width: 23px;
-      height: 23px;
-    }
+        .marca {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
 
-    .marca strong,
-    .marca small {
-      display: block;
-    }
+        .icone-marca {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-    .marca small {
-      margin-top: 3px;
-      color: #b8cee0;
-      font-size: 12px;
-    }
+        .icone-marca svg {
+            width: 23px;
+            height: 23px;
+        }
 
-    .cabecalho-texto {
-      color: #c8d9e6;
-      font-size: 14px;
-    }
+        .marca strong,
+        .marca small {
+            display: block;
+        }
 
-    .apresentacao {
-      position: relative;
-      overflow: hidden;
-      padding: 68px max(20px, calc((100vw - 1120px) / 2)) 92px;
-      background:
-        radial-gradient(circle at 82% 8%, rgba(73, 158, 218, 0.23), transparent 27%),
-        linear-gradient(135deg, #0b2945 0%, #123e64 100%);
-      color: var(--branco);
-    }
+        .marca strong {
+            font-size: 16px;
+        }
 
-    .apresentacao::after {
-      content: "";
-      position: absolute;
-      right: -90px;
-      bottom: -145px;
-      width: 390px;
-      height: 390px;
-      border: 1px solid rgba(255, 255, 255, 0.11);
-      border-radius: 50%;
-      box-shadow:
-        0 0 0 55px rgba(255, 255, 255, 0.025),
-        0 0 0 110px rgba(255, 255, 255, 0.018);
-    }
+        .marca small {
+            margin-top: 3px;
+            color: #b8cee0;
+            font-size: 12px;
+        }
 
-    .etiqueta {
-      display: block;
-      color: #77c9ff;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+        .cabecalho-texto {
+            color: #c8d9e6;
+            font-size: 14px;
+        }
 
-    .titulo-principal {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      color: var(--branco);
-      font-size: clamp(38px, 5vw, 64px);
-      line-height: 1.08;
-      letter-spacing: -2px;
-    }
+        .apresentacao {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            padding: 68px max(20px, calc((100vw - 1120px) / 2)) 92px;
+            background:
+                radial-gradient(
+                    circle at 82% 8%,
+                    rgba(73, 158, 218, 0.23),
+                    transparent 27%
+                ),
+                linear-gradient(135deg, #0b2945 0%, #123e64 100%);
+            color: var(--branco);
+        }
 
-    .conteudo {
-      width: min(1120px, calc(100% - 40px));
-      margin: -48px auto 80px;
-      padding: 32px;
-      border: 1px solid var(--borda);
-      border-radius: 22px;
-      background: var(--branco);
-      box-shadow: 0 18px 50px rgba(12, 48, 76, 0.10);
-    }
+        .apresentacao::after {
+            content: "";
+            position: absolute;
+            right: -90px;
+            bottom: -145px;
+            width: 390px;
+            height: 390px;
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 55px rgba(255, 255, 255, 0.025),
+                0 0 0 110px rgba(255, 255, 255, 0.018);
+        }
 
-    .topo-lista {
-      margin-bottom: 26px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+        .titulo-principal {
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            color: var(--branco);
+            font-size: clamp(38px, 5vw, 64px);
+            line-height: 1.08;
+            letter-spacing: -2px;
+        }
 
-    .topo-lista .etiqueta {
-      color: var(--azul-medio);
-    }
+        .conteudo {
+            position: relative;
+            z-index: 5;
+            width: min(1120px, calc(100% - 40px));
+            margin: -48px auto 80px;
+            padding: 32px;
+            border: 1px solid var(--borda);
+            border-radius: 22px;
+            background: var(--branco);
+            box-shadow: 0 18px 50px rgba(12, 48, 76, 0.10);
+        }
 
-    .contador {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #f4f9fd;
-      color: var(--azul-medio);
-      font-size: 12px;
-      font-weight: bold;
-    }
+        .topo-lista {
+            margin-bottom: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-    .grade-links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
+        .etiqueta {
+            display: block;
+            color: var(--azul-claro);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-    .cartao {
-      min-height: 330px;
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--borda);
-      border-radius: 17px;
-      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
-      transition: 0.2s;
-    }
+        .contador {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #f4f9fd;
+            color: var(--azul-claro);
+            font-size: 12px;
+            font-weight: bold;
+        }
 
-    .cartao:hover {
-      transform: translateY(-3px);
-      border-color: #a7cce6;
-      box-shadow: 0 14px 30px rgba(17, 70, 110, 0.09);
-    }
+        .grade-links {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
 
-    .cartao-topo {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+        .cartao {
+            min-height: 330px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--borda);
+            border-radius: 17px;
+            background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
 
-    .icone-cartao {
-      width: 47px;
-      height: 47px;
-      display: grid;
-      place-items: center;
-      border-radius: 13px;
-      background: var(--azul-claro);
-      color: var(--azul-medio);
-    }
+        .cartao:hover {
+            transform: translateY(-3px);
+            border-color: #a7cce6;
+            box-shadow: 0 14px 30px rgba(17, 70, 110, 0.09);
+        }
 
-    .icone-cartao svg {
-      width: 25px;
-      height: 25px;
-    }
+        .cartao-topo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-    .categoria {
-      padding: 7px 10px;
-      border: 1px solid var(--borda);
-      border-radius: 999px;
-      color: var(--cinza);
-      font-size: 11px;
-      font-weight: bold;
-    }
+        .icone-cartao {
+            width: 47px;
+            height: 47px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            background: var(--fundo-icone);
+            color: var(--azul-claro);
+        }
 
-    .cartao-conteudo {
-      margin: 28px 0 24px;
-    }
+        .icone-cartao svg {
+            width: 25px;
+            height: 25px;
+        }
 
-    .cartao h2 {
-      margin: 0 0 12px;
-      font-size: 21px;
-    }
+        .categoria {
+            padding: 7px 10px;
+            border: 1px solid var(--borda);
+            border-radius: 999px;
+            color: var(--cinza);
+            font-size: 11px;
+            font-weight: bold;
+        }
 
-    .cartao p {
-      margin: 0;
-      color: var(--texto);
-      font-size: 15px;
-      line-height: 1.65;
-    }
+        .cartao-conteudo {
+            margin: 28px 0 24px;
+        }
 
-    .botao {
-      min-height: 48px;
-      margin-top: auto;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border-radius: 11px;
-      background: var(--azul);
-      color: var(--branco);
-      font-size: 14px;
-      font-weight: bold;
-    }
+        .cartao h2 {
+            margin: 0 0 12px;
+            font-size: 21px;
+        }
 
-    .botao:hover {
-      background: var(--azul-medio);
-    }
+        .cartao p {
+            margin: 0;
+            color: var(--texto);
+            font-size: 15px;
+            line-height: 1.65;
+        }
 
-    .botao:focus-visible {
-      outline: 3px solid #76c8ff;
-      outline-offset: 4px;
-    }
+        .botao {
+            min-height: 48px;
+            margin-top: auto;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 11px;
+            background: var(--azul);
+            color: var(--branco);
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
 
-    .botao svg {
-      width: 17px;
-      height: 17px;
-    }
+        .botao:hover {
+            background: var(--azul-claro);
+        }
 
-    footer {
-      padding: 26px 20px 32px;
-      border-top: 1px solid var(--borda);
-      background: var(--branco);
-      text-align: center;
-    }
+        .botao:focus-visible {
+            outline: 3px solid #76c8ff;
+            outline-offset: 4px;
+        }
 
-    footer strong,
-    footer span {
-      display: block;
-    }
+        .botao svg {
+            width: 17px;
+            height: 17px;
+        }
 
-    footer strong {
-      margin-bottom: 7px;
-      font-size: 14px;
-    }
+        footer {
+            padding: 26px 20px 32px;
+            border-top: 1px solid var(--borda);
+            background: var(--branco);
+            text-align: center;
+        }
 
-    footer span {
-      color: var(--cinza);
-      font-size: 12px;
-    }
+        footer strong,
+        footer span {
+            display: block;
+        }
 
-    @media (max-width: 720px) {
-      .cabecalho-conteudo {
-        width: calc(100% - 28px);
-        min-height: 72px;
-      }
+        footer strong {
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
 
-      .cabecalho-texto {
-        display: none;
-      }
+        footer span {
+            color: var(--cinza);
+            font-size: 12px;
+        }
 
-      .apresentacao {
-        padding: 54px 20px 82px;
-      }
+        @media (max-width: 720px) {
+            .cabecalho-conteudo {
+                width: calc(100% - 28px);
+                min-height: 72px;
+            }
 
-      .conteudo {
-        width: calc(100% - 24px);
-        margin-top: -42px;
-        margin-bottom: 52px;
-        padding: 22px;
-      }
+            .cabecalho-texto {
+                display: none;
+            }
 
-      .grade-links {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+            .apresentacao {
+                padding: 54px 20px 82px;
+            }
+
+            .titulo-principal {
+                font-size: 38px;
+                letter-spacing: -1px;
+            }
+
+            .conteudo {
+                width: calc(100% - 24px);
+                margin-top: -42px;
+                margin-bottom: 52px;
+                padding: 22px;
+                border-radius: 18px;
+            }
+
+            .grade-links {
+                grid-template-columns: 1fr;
+            }
+
+            .cartao {
+                min-height: 315px;
+                padding: 22px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header class="cabecalho">
-    <div class="cabecalho-conteudo">
-      <div class="marca">
-        <span class="icone-marca" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-          </svg>
-        </span>
-        <span>
-          <strong>Links Importantes</strong>
-          <small>Central de acessos</small>
-        </span>
-      </div>
+    <header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <div class="marca">
+                <span class="icone-marca" aria-hidden="true">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                </span>
 
-      <span class="cabecalho-texto">Acesso rápido e organizado</span>
-    </div>
-  </header>
+                <span>
+                    <strong>Links Importantes</strong>
+                    <small>Central de acessos</small>
+                </span>
+            </div>
 
-  <main>
-    <section class="apresentacao" aria-label="Central de links importantes">
-      <h1 class="titulo-principal">Central de links</h1>
-    </section>
-
-    <section class="conteudo" aria-label="Acessos disponíveis">
-      <div class="topo-lista">
-        <span class="etiqueta">Acessos disponíveis</span>
-        <span class="contador">1 link</span>
-      </div>
-
-      <div class="grade-links">
-        <article class="cartao">
-          <div class="cartao-topo">
-            <span class="icone-cartao" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-              </svg>
+            <span class="cabecalho-texto">
+                Acesso rápido e organizado
             </span>
-            <span class="categoria">SAD • SEADP</span>
-          </div>
+        </div>
+    </header>
 
-          <div class="cartao-conteudo">
-            <h2>Contratos — GESIG</h2>
-            <p>Acesse o painel de contratos da GESIG no Power BI do Governo de Pernambuco.</p>
-          </div>
+    <main>
+        <section
+            class="apresentacao"
+            aria-label="Central de links importantes"
+        >
+            <h1 class="titulo-principal">
+                Central de links
+            </h1>
+        </section>
 
-          <a
-            class="botao"
-            href="https://powerbi.pe.gov.br/relatorios/browse/SAD/SEADP/CONTRATOS-GESIG"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Acessar relatório
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 3h6v6"></path>
-              <path d="M10 14 21 3"></path>
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            </svg>
-          </a>
-        </article>
-      </div>
-    </section>
-  </main>
+        <section
+            class="conteudo"
+            aria-label="Acessos disponíveis"
+        >
+            <div class="topo-lista">
+                <span class="etiqueta">
+                    Acessos disponíveis
+                </span>
 
-  <footer>
-    <strong>Central de Links Importantes</strong>
-    <span>Novos acessos poderão ser adicionados futuramente.</span>
-  </footer>
+                <span class="contador">
+                    1 link
+                </span>
+            </div>
+
+            <div class="grade-links">
+                <article class="cartao">
+                    <div class="cartao-topo">
+                        <span
+                            class="icone-cartao"
+                            aria-hidden="true"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                            </svg>
+                        </span>
+
+                        <span class="categoria">
+                            SAD • SEADP
+                        </span>
+                    </div>
+
+                    <div class="cartao-conteudo">
+                        <h2>Contratos — GESIG</h2>
+
+                        <p>
+                            Acesse o painel de contratos da GESIG no Power BI
+                            do Governo de Pernambuco.
+                        </p>
+                    </div>
+
+                    <a
+                        class="botao"
+                        href="https://powerbi.pe.gov.br/relatorios/browse/SAD/SEADP/CONTRATOS-GESIG"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Acessar relatório
+
+                        <svg
+                            aria-hidden="true"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M15 3h6v6"></path>
+                            <path d="M10 14 21 3"></path>
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        </svg>
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <strong>Central de Links Importantes</strong>
+        <span>
+            Novos acessos poderão ser adicionados futuramente.
+        </span>
+    </footer>
 </body>
 </html>
-
