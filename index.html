@@ -2,7 +2,11 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Links Importantes | Central de Acessos</title>
 
@@ -10,12 +14,15 @@
         :root {
             --azul-escuro: #081d31;
             --azul: #0b2945;
+            --azul-medio: #123e64;
             --azul-claro: #1672b8;
+            --azul-borda: #1672b8;
             --fundo-icone: #e8f4fc;
             --texto: #3d4e5d;
             --cinza: #6c7d8b;
-            --borda: #dde6ed;
+            --borda-clara: #d9e6ef;
             --branco: #ffffff;
+            --fundo: #f4f8fb;
         }
 
         * {
@@ -27,8 +34,11 @@
         }
 
         body {
+            min-height: 100vh;
             margin: 0;
-            background: #f7fafc;
+            display: flex;
+            flex-direction: column;
+            background: var(--fundo);
             color: var(--azul-escuro);
             font-family: Arial, Helvetica, sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -39,6 +49,12 @@
             text-decoration: none;
         }
 
+        /*
+        ==========================
+        CABEÇALHO
+        ==========================
+        */
+
         .cabecalho {
             position: relative;
             z-index: 10;
@@ -48,9 +64,9 @@
         }
 
         .cabecalho-conteudo {
-            width: min(1120px, calc(100% - 40px));
-            min-height: 78px;
-            margin: auto;
+            width: min(900px, calc(100% - 40px));
+            min-height: 70px;
+            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -60,22 +76,23 @@
         .marca {
             display: flex;
             align-items: center;
-            gap: 13px;
+            gap: 12px;
         }
 
         .icone-marca {
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             display: grid;
             place-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.24);
-            border-radius: 12px;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 11px;
             background: rgba(255, 255, 255, 0.1);
         }
 
         .icone-marca svg {
-            width: 23px;
-            height: 23px;
+            width: 21px;
+            height: 21px;
         }
 
         .marca strong,
@@ -84,43 +101,59 @@
         }
 
         .marca strong {
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .marca small {
             margin-top: 3px;
             color: #b8cee0;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .cabecalho-texto {
             color: #c8d9e6;
-            font-size: 14px;
+            font-size: 12px;
+        }
+
+        /*
+        ==========================
+        ÁREA AZUL
+        ==========================
+        */
+
+        main {
+            flex: 1;
         }
 
         .apresentacao {
             position: relative;
-            z-index: 1;
             overflow: hidden;
-            padding: 68px max(20px, calc((100vw - 1120px) / 2)) 92px;
+            min-height: 185px;
+            padding: 50px max(20px, calc((100vw - 900px) / 2));
+            display: flex;
+            align-items: center;
             background:
                 radial-gradient(
-                    circle at 82% 8%,
-                    rgba(73, 158, 218, 0.23),
-                    transparent 27%
+                    circle at 83% 10%,
+                    rgba(73, 158, 218, 0.24),
+                    transparent 30%
                 ),
-                linear-gradient(135deg, #0b2945 0%, #123e64 100%);
+                linear-gradient(
+                    135deg,
+                    var(--azul) 0%,
+                    var(--azul-medio) 100%
+                );
             color: var(--branco);
         }
 
         .apresentacao::after {
             content: "";
             position: absolute;
-            right: -90px;
-            bottom: -145px;
-            width: 390px;
-            height: 390px;
-            border: 1px solid rgba(255, 255, 255, 0.11);
+            right: -100px;
+            bottom: -190px;
+            width: 400px;
+            height: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 50%;
             box-shadow:
                 0 0 0 55px rgba(255, 255, 255, 0.025),
@@ -132,25 +165,40 @@
             z-index: 2;
             margin: 0;
             color: var(--branco);
-            font-size: clamp(38px, 5vw, 64px);
-            line-height: 1.08;
+            font-size: clamp(40px, 5vw, 56px);
+            line-height: 1.05;
             letter-spacing: -2px;
         }
+
+        /*
+        ==========================
+        RETÂNGULO PRINCIPAL
+        ==========================
+        */
 
         .conteudo {
             position: relative;
             z-index: 5;
-            width: min(1120px, calc(100% - 40px));
-            margin: -48px auto 80px;
-            padding: 32px;
-            border: 1px solid var(--borda);
-            border-radius: 22px;
+            width: min(900px, calc(100% - 40px));
+
+            /*
+            O valor positivo coloca a caixa
+            completamente abaixo da área azul.
+            */
+            margin: 40px auto 65px;
+            padding: 25px;
+
+            border: 2px solid var(--azul-borda);
+            border-radius: 17px;
             background: var(--branco);
-            box-shadow: 0 18px 50px rgba(12, 48, 76, 0.10);
+
+            box-shadow:
+                0 10px 28px rgba(11, 41, 69, 0.12),
+                0 0 0 4px rgba(22, 114, 184, 0.05);
         }
 
         .topo-lista {
-            margin-bottom: 26px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -160,20 +208,27 @@
         .etiqueta {
             display: block;
             color: var(--azul-claro);
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
-            letter-spacing: 2px;
+            letter-spacing: 1.8px;
             text-transform: uppercase;
         }
 
         .contador {
-            padding: 8px 12px;
+            padding: 7px 11px;
+            border: 1px solid #d4e8f6;
             border-radius: 999px;
-            background: #f4f9fd;
+            background: #f1f8fd;
             color: var(--azul-claro);
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
         }
+
+        /*
+        ==========================
+        GRADE DE LINKS
+        ==========================
+        */
 
         .grade-links {
             display: grid;
@@ -181,14 +236,34 @@
             gap: 18px;
         }
 
+        /*
+        ==========================
+        RETÂNGULO DO LINK
+        ==========================
+        */
+
         .cartao {
-            min-height: 330px;
-            padding: 25px;
+            width: 100%;
+            max-width: 410px;
+            min-height: 260px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            border: 1px solid var(--borda);
-            border-radius: 17px;
-            background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+
+            border: 2px solid var(--azul-borda);
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #f8fcff 100%
+                );
+
+            box-shadow:
+                0 7px 18px rgba(11, 41, 69, 0.08),
+                inset 0 3px 0 rgba(22, 114, 184, 0.08);
+
             transition:
                 transform 0.2s ease,
                 border-color 0.2s ease,
@@ -196,91 +271,118 @@
         }
 
         .cartao:hover {
-            transform: translateY(-3px);
-            border-color: #a7cce6;
-            box-shadow: 0 14px 30px rgba(17, 70, 110, 0.09);
+            transform: translateY(-4px);
+            border-color: #0d5e9a;
+            box-shadow:
+                0 13px 28px rgba(11, 41, 69, 0.15),
+                inset 0 3px 0 rgba(22, 114, 184, 0.12);
         }
 
         .cartao-topo {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 18px;
         }
 
         .icone-cartao {
-            width: 47px;
-            height: 47px;
+            width: 42px;
+            height: 42px;
             display: grid;
             place-items: center;
-            border-radius: 13px;
+            flex-shrink: 0;
+            border: 1px solid #cce4f4;
+            border-radius: 11px;
             background: var(--fundo-icone);
             color: var(--azul-claro);
         }
 
         .icone-cartao svg {
-            width: 25px;
-            height: 25px;
+            width: 22px;
+            height: 22px;
         }
 
         .categoria {
-            padding: 7px 10px;
-            border: 1px solid var(--borda);
+            padding: 6px 9px;
+            border: 1px solid #c9dce9;
             border-radius: 999px;
+            background: var(--branco);
             color: var(--cinza);
-            font-size: 11px;
+            font-size: 10px;
             font-weight: bold;
         }
 
         .cartao-conteudo {
-            margin: 28px 0 24px;
+            margin: 20px 0;
         }
 
         .cartao h2 {
-            margin: 0 0 12px;
-            font-size: 21px;
+            margin: 0 0 10px;
+            color: var(--azul-escuro);
+            font-size: 18px;
         }
 
         .cartao p {
             margin: 0;
             color: var(--texto);
-            font-size: 15px;
-            line-height: 1.65;
+            font-size: 13px;
+            line-height: 1.55;
         }
 
+        /*
+        ==========================
+        BOTÃO
+        ==========================
+        */
+
         .botao {
-            min-height: 48px;
+            min-height: 43px;
             margin-top: auto;
-            padding: 12px 16px;
+            padding: 11px 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            border-radius: 11px;
+            gap: 9px;
+
+            border: 1px solid var(--azul);
+            border-radius: 9px;
             background: var(--azul);
             color: var(--branco);
-            font-size: 14px;
+
+            font-size: 12px;
             font-weight: bold;
-            transition: background 0.2s ease;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
         }
 
         .botao:hover {
+            transform: translateY(-1px);
+            border-color: var(--azul-claro);
             background: var(--azul-claro);
         }
 
         .botao:focus-visible {
             outline: 3px solid #76c8ff;
-            outline-offset: 4px;
+            outline-offset: 3px;
         }
 
         .botao svg {
-            width: 17px;
-            height: 17px;
+            width: 15px;
+            height: 15px;
         }
 
+        /*
+        ==========================
+        RODAPÉ
+        ==========================
+        */
+
         footer {
-            padding: 26px 20px 32px;
-            border-top: 1px solid var(--borda);
+            padding: 22px 20px 27px;
+            border-top: 1px solid var(--borda-clara);
             background: var(--branco);
             text-align: center;
         }
@@ -291,19 +393,25 @@
         }
 
         footer strong {
-            margin-bottom: 7px;
-            font-size: 14px;
+            margin-bottom: 6px;
+            font-size: 13px;
         }
 
         footer span {
             color: var(--cinza);
-            font-size: 12px;
+            font-size: 11px;
         }
+
+        /*
+        ==========================
+        CELULAR
+        ==========================
+        */
 
         @media (max-width: 720px) {
             .cabecalho-conteudo {
                 width: calc(100% - 28px);
-                min-height: 72px;
+                min-height: 68px;
             }
 
             .cabecalho-texto {
@@ -311,7 +419,8 @@
             }
 
             .apresentacao {
-                padding: 54px 20px 82px;
+                min-height: 160px;
+                padding: 42px 20px;
             }
 
             .titulo-principal {
@@ -321,10 +430,13 @@
 
             .conteudo {
                 width: calc(100% - 24px);
-                margin-top: -42px;
-                margin-bottom: 52px;
-                padding: 22px;
-                border-radius: 18px;
+                margin: 28px auto 45px;
+                padding: 18px;
+                border-radius: 15px;
+            }
+
+            .topo-lista {
+                margin-bottom: 17px;
             }
 
             .grade-links {
@@ -332,8 +444,42 @@
             }
 
             .cartao {
-                min-height: 315px;
-                padding: 22px;
+                max-width: none;
+                min-height: 255px;
+                padding: 19px;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .marca strong {
+                font-size: 14px;
+            }
+
+            .titulo-principal {
+                font-size: 34px;
+            }
+
+            .conteudo {
+                width: calc(100% - 20px);
+                padding: 15px;
+            }
+
+            .etiqueta {
+                font-size: 10px;
+                letter-spacing: 1.3px;
+            }
+
+            .contador {
+                padding: 6px 9px;
+                font-size: 10px;
+            }
+
+            .cartao {
+                padding: 17px;
+            }
+
+            .cartao h2 {
+                font-size: 17px;
             }
         }
     </style>
@@ -342,8 +488,12 @@
 <body>
     <header class="cabecalho">
         <div class="cabecalho-conteudo">
+
             <div class="marca">
-                <span class="icone-marca" aria-hidden="true">
+                <span
+                    class="icone-marca"
+                    aria-hidden="true"
+                >
                     <svg
                         viewBox="0 0 24 24"
                         fill="none"
@@ -352,8 +502,13 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
-                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        <path
+                            d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                        ></path>
+
+                        <path
+                            d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                        ></path>
                     </svg>
                 </span>
 
@@ -366,10 +521,12 @@
             <span class="cabecalho-texto">
                 Acesso rápido e organizado
             </span>
+
         </div>
     </header>
 
     <main>
+
         <section
             class="apresentacao"
             aria-label="Central de links importantes"
@@ -384,6 +541,7 @@
             aria-label="Acessos disponíveis"
         >
             <div class="topo-lista">
+
                 <span class="etiqueta">
                     Acessos disponíveis
                 </span>
@@ -391,11 +549,15 @@
                 <span class="contador">
                     1 link
                 </span>
+
             </div>
 
             <div class="grade-links">
+
                 <article class="cartao">
+
                     <div class="cartao-topo">
+
                         <span
                             class="icone-cartao"
                             aria-hidden="true"
@@ -408,23 +570,33 @@
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                             >
-                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                                <path
+                                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                                ></path>
+
+                                <path
+                                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                                ></path>
                             </svg>
                         </span>
 
                         <span class="categoria">
                             SAD • SEADP
                         </span>
+
                     </div>
 
                     <div class="cartao-conteudo">
-                        <h2>Contratos — GESIG</h2>
+
+                        <h2>
+                            Contratos — GESIG
+                        </h2>
 
                         <p>
                             Acesse o painel de contratos da GESIG no Power BI
                             do Governo de Pernambuco.
                         </p>
+
                     </div>
 
                     <a
@@ -446,21 +618,27 @@
                         >
                             <path d="M15 3h6v6"></path>
                             <path d="M10 14 21 3"></path>
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <path
+                                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            ></path>
                         </svg>
                     </a>
+
                 </article>
+
             </div>
         </section>
+
     </main>
 
     <footer>
-        <strong>Central de Links Importantes</strong>
+        <strong>
+            Central de Links Importantes
+        </strong>
+
         <span>
             Novos acessos poderão ser adicionados futuramente.
         </span>
     </footer>
 </body>
 </html>
-
-
