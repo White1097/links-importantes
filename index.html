@@ -172,7 +172,7 @@
 
         /*
         ==========================
-        RETÂNGULO PRINCIPAL
+        CONTEÚDO PRINCIPAL
         ==========================
         */
 
@@ -180,18 +180,11 @@
             position: relative;
             z-index: 5;
             width: min(900px, calc(100% - 40px));
-
-            /*
-            O valor positivo coloca a caixa
-            completamente abaixo da área azul.
-            */
             margin: 40px auto 65px;
             padding: 25px;
-
             border: 2px solid var(--azul-borda);
             border-radius: 17px;
             background: var(--branco);
-
             box-shadow:
                 0 10px 28px rgba(11, 41, 69, 0.12),
                 0 0 0 4px rgba(22, 114, 184, 0.05);
@@ -238,32 +231,27 @@
 
         /*
         ==========================
-        RETÂNGULO DO LINK
+        CARTÕES
         ==========================
         */
 
         .cartao {
             width: 100%;
-            max-width: 410px;
-            min-height: 260px;
+            min-height: 270px;
             padding: 20px;
             display: flex;
             flex-direction: column;
-
             border: 2px solid var(--azul-borda);
             border-radius: 14px;
-
             background:
                 linear-gradient(
                     180deg,
                     #ffffff 0%,
                     #f8fcff 100%
                 );
-
             box-shadow:
                 0 7px 18px rgba(11, 41, 69, 0.08),
                 inset 0 3px 0 rgba(22, 114, 184, 0.08);
-
             transition:
                 transform 0.2s ease,
                 border-color 0.2s ease,
@@ -310,6 +298,7 @@
             color: var(--cinza);
             font-size: 10px;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         .cartao-conteudo {
@@ -331,7 +320,7 @@
 
         /*
         ==========================
-        BOTÃO
+        BOTÕES
         ==========================
         */
 
@@ -343,15 +332,12 @@
             align-items: center;
             justify-content: center;
             gap: 9px;
-
             border: 1px solid var(--azul);
             border-radius: 9px;
             background: var(--azul);
             color: var(--branco);
-
             font-size: 12px;
             font-weight: bold;
-
             transition:
                 background 0.2s ease,
                 border-color 0.2s ease,
@@ -404,7 +390,7 @@
 
         /*
         ==========================
-        CELULAR
+        RESPONSIVIDADE
         ==========================
         */
 
@@ -444,7 +430,6 @@
             }
 
             .cartao {
-                max-width: none;
                 min-height: 255px;
                 padding: 19px;
             }
@@ -481,15 +466,21 @@
             .cartao h2 {
                 font-size: 17px;
             }
+
+            .categoria {
+                font-size: 9px;
+            }
         }
     </style>
 </head>
 
 <body>
+
     <header class="cabecalho">
         <div class="cabecalho-conteudo">
 
             <div class="marca">
+
                 <span
                     class="icone-marca"
                     aria-hidden="true"
@@ -516,6 +507,7 @@
                     <strong>Links Importantes</strong>
                     <small>Central de acessos</small>
                 </span>
+
             </div>
 
             <span class="cabecalho-texto">
@@ -540,6 +532,7 @@
             class="conteudo"
             aria-label="Acessos disponíveis"
         >
+
             <div class="topo-lista">
 
                 <span class="etiqueta">
@@ -547,12 +540,14 @@
                 </span>
 
                 <span class="contador">
-                    1 link
+                    2 links
                 </span>
 
             </div>
 
             <div class="grade-links">
+
+                <!-- CARTÃO 1: CONTRATOS GESIG -->
 
                 <article class="cartao">
 
@@ -618,6 +613,84 @@
                         >
                             <path d="M15 3h6v6"></path>
                             <path d="M10 14 21 3"></path>
+
+                            <path
+                                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            ></path>
+                        </svg>
+                    </a>
+
+                </article>
+
+                <!-- CARTÃO 2: MODELOS DE CONVÊNIOS AGU -->
+
+                <article class="cartao">
+
+                    <div class="cartao-topo">
+
+                        <span
+                            class="icone-cartao"
+                            aria-hidden="true"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path
+                                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                                ></path>
+
+                                <path d="M14 2v6h6"></path>
+                                <path d="M8 13h8"></path>
+                                <path d="M8 17h8"></path>
+                                <path d="M8 9h2"></path>
+                            </svg>
+                        </span>
+
+                        <span class="categoria">
+                            AGU • CGU
+                        </span>
+
+                    </div>
+
+                    <div class="cartao-conteudo">
+
+                        <h2>
+                            Modelos de Convênios — AGU
+                        </h2>
+
+                        <p>
+                            Consulte modelos e pareceres de convênios e
+                            instrumentos congêneres disponibilizados pela
+                            Advocacia-Geral da União.
+                        </p>
+
+                    </div>
+
+                    <a
+                        class="botao"
+                        href="https://www.gov.br/agu/pt-br/composicao/cgu/cgu/modelos/conveniosecongeneres"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Acessar modelos
+
+                        <svg
+                            aria-hidden="true"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M15 3h6v6"></path>
+                            <path d="M10 14 21 3"></path>
+
                             <path
                                 d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
                             ></path>
@@ -632,6 +705,7 @@
     </main>
 
     <footer>
+
         <strong>
             Central de Links Importantes
         </strong>
@@ -639,6 +713,8 @@
         <span>
             Novos acessos poderão ser adicionados futuramente.
         </span>
+
     </footer>
+
 </body>
 </html>
